@@ -24,33 +24,7 @@
             <div id="fechita">
                     
                 </div>
-            <div class="enlaces">
-                <nav class="navbar">
-                    <ul>
-                         <li >
-                            <a  href="../index.php">Inicio</a>
-                        </li>
-                        <li >
-                            <a  href="../page/quienesSomos.php">Quienes Somos?</a>
-                        </li>
-                        <li >
-                            <a  href="../page/directorio.php">Directorio</a>                        
-                        </li>
-                        <li >
-                            <a href="../page/descargas.php">Descargas</a>
-                        </li>
-                        <li>
-                            <a  href="../page/galeria.php">Galeria</a>
-                       </li>
-                        <li>
-                            <a  href="../page/Contacto.php">Contacto</a>
-                       </li>
-                       <li>
-                           <a  href="" data-bs-toggle="modal" data-bs-target="#sesionUsuario">Sesión</a>
-                       </li>
-                    </ul>
-                </nav>
-            </div>
+                <?php include ("encabezado.php"); ?>
          </div>
     </header>
 

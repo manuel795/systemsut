@@ -1,6 +1,9 @@
    /* Fondo gris y estilo general */
    body {
     margin: 0;
+     display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ocupa al menos el 100% del alto de la ventana */
     font-family: Arial, sans-serif;
     background-color: #f4f4f4; /* Fondo gris claro */
 }
@@ -41,7 +44,7 @@
 /* Estilos para la barra de navegación */
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: right;
 }
 
 .navbar__menu {
@@ -152,9 +155,9 @@ gap: 10px; /* Espacio entre las celdas */
 padding: 20px; 
 max-width:100%; 
 margin: auto; 
-
 height: auto;
 overflow: hidden;
+
 
 } 
 /*Se añade el primer el primer div al Contenedor*/
@@ -357,14 +360,13 @@ border: 2px solid #dc3545;
     height: 100px;
     width: 100%;
      display:flex;       
-     margin:0;
-     padding:25px;
-     flex-direction:column;
-     position:sticky;
+        flex-direction:column;
      justify-content:center;
      text-align:center;
      align-items:center;
      background:#800040;
      color:white;
-     bottom: 0;
+     bottom: 0;   
+     padding: 15px 0;
+     margin-top: auto; /* Empuja el footer hacia abajo */
 }
