@@ -1,0 +1,86 @@
+/* FONDO ANIMADO DE CUBO*/
+ .hero__title {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 50px;
+  z-index: 1;
+}
+
+.cube {
+  position: absolute;
+  top: 60vh;
+  left: 45vw;
+  width: 5px;
+  height: 5px;
+  border: solid 1px #800040;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+          transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  -webkit-animation: cube 10s ease-in forwards infinite;
+          animation: cube 10s ease-in forwards infinite;
+}
+.cube:nth-child(6n) {
+  border-color:  #064006 ;
+}
+.cube:nth-child(6) {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  left: 90vw;
+  top: 3vh;
+}
+.cube:nth-child(7) {
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  left: 120vw;
+  top: 30vh;
+}
+.cube:nth-child(8) {
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+  left: 90vw;
+  top: 10vh;
+}
+.cube:nth-child(9) {
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
+  left: 10vw;
+  top: 55vh;
+}
+.cube:nth-child(10) {
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+  left: 15vw;
+  top: 10vh;
+}
+
+@-webkit-keyframes cube {
+  from {
+    -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+            transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(20) rotate(960deg) translate(-50%, -50%);
+            transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes cube {
+  from {
+    -webkit-transform: scale(0) rotate(0deg) translate(-50%, -50%);
+            transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(20) rotate(960deg) translate(-50%, -50%);
+            transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+} 
+
