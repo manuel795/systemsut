@@ -34,9 +34,9 @@
             <!-- Lista de navegación -->
             <ul class="navbar__menu" id="navbar-menu" role="menubar">
                 <li class="navbar__item" role="none">
-                    <a href="page/quienes-somos.php" class="navbar__link" 
+                    <a href="page/quienesSomos.php" class="navbar__link" 
                        role="menuitem" 
-                       aria-current="<?= ($paginaActual === 'quienes-somos') ? 'page' : 'false' ?>">
+                       aria-current="<?= ($paginaActual === 'quienesSomos') ? 'page' : 'false' ?>">
                         Quiénes Somos
                     </a>
                 </li>
