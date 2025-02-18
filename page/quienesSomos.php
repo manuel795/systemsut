@@ -12,46 +12,76 @@
 
    </style>
 <header>
-        <div class="encabezado">
-            <div class="titulog">
-                <div class="logito">
-                <!--  <img src="imagenes/logo1.jpg"  alt="Logo">-->
-                </div>
-                <div class="titulo1">
-                    <h2>Sindicato Único de Trabajadores del Gobierno del Estado al Servicio de la Educación</h2>
-                </div>
-            </div>
-            <div id="fechita">
-                    
-                </div>
-            <div class="enlaces">
-                <nav class="navbar">
-                    <ul>
-                         <li >
-                            <a  href="../index.php">Inicio</a>
-                        </li>
-                        <li >
-                            <a  href="">Quienes Somos?</a>
-                        </li>
-                        <li >
-                            <a  href="../page/directorio.php">Directorio</a>                        
-                        </li>
-                        <li >
-                            <a href="../page/descargas.php">Descargas</a>
-                        </li>
-                        <li>
-                            <a  href="../page/galeria.php">Galeria</a>
-                       </li>
-                        <li>
-                            <a  href="../page/Contacto.php">Contacto</a>
-                       </li>
-                       <li>
-                       <a  href="" data-bs-toggle="modal" data-bs-target="#sesionUsuario">Sesión</a>
-                       </li>
-                    </ul>
-                </nav>
-            </div>
-         </div>
+<div class="encabezado">
+    <div class="titulog">
+        <div class="logito">
+            <!-- <img src="imagenes/logo1.jpg" alt="Logo"> -->
+        </div>
+        <div class="titulo1">
+            <h2>Sindicato Único de Trabajadores del Gobierno del Estado al Servicio de la Educación</h2>
+        </div>
+    </div>
+    <div id="fechita">
+        <!-- Aquí puedes agregar la fecha dinámica si lo deseas -->
+    </div>
+    <div class="enlaces">
+        <nav class="navbar" aria-label="Navegación principal">
+            <!-- Botón para móvil -->
+            <button class="navbar__toggle" aria-expanded="false" aria-controls="navbar-menu" aria-label="Abrir menú">
+                <span class="navbar__hamburger"></span>
+            </button>
+            
+            <!-- Lista de navegación -->
+            <ul class="navbar__menu" id="navbar-menu" role="menubar">
+                <li class="navbar__item" role="none">
+                    <a href="page/quienes-somos.php" class="navbar__link" 
+                       role="menuitem" 
+                       aria-current="<?= ($paginaActual === 'quienes-somos') ? 'page' : 'false' ?>">
+                        Quiénes Somos
+                    </a>
+                </li>
+                <li class="navbar__item" role="none">
+                    <a href="page/directorio.php" class="navbar__link" 
+                       role="menuitem"
+                       aria-current="<?= ($paginaActual === 'directorio') ? 'page' : 'false' ?>">
+                        Directorio
+                    </a>
+                </li>
+                <li class="navbar__item" role="none">
+                    <a href="page/descargas.php" class="navbar__link" 
+                       role="menuitem"
+                       aria-current="<?= ($paginaActual === 'descargas') ? 'page' : 'false' ?>">
+                        Descargas
+                    </a>
+                </li>
+                <li class="navbar__item" role="none">
+                    <a href="page/galeria.php" class="navbar__link" 
+                       role="menuitem"
+                       aria-current="<?= ($paginaActual === 'galeria') ? 'page' : 'false' ?>">
+                        Galería
+                    </a>
+                </li>
+                <li class="navbar__item" role="none">
+                    <a href="page/contacto.php" class="navbar__link" 
+                       role="menuitem"
+                       aria-current="<?= ($paginaActual === 'contacto') ? 'page' : 'false' ?>">
+                        Contacto
+                    </a>
+                </li>
+                <li class="navbar__item" role="none">
+                    <a href="#sesion-usuario" 
+                       class="navbar__link navbar__link--modal" 
+                       role="menuitem"
+                       data-bs-toggle="modal" 
+                       data-bs-target="#sesionUsuario"
+                       aria-haspopup="dialog">
+                        Iniciar Sesión
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
     </header>
 
 </head>
@@ -143,5 +173,6 @@
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/sesionModal2.js"></script>
         <script src="../js/fecha_actual.js"></script>
+        <script src="../js/head1.js"></script>
 </body>
 </html>

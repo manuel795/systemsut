@@ -171,18 +171,7 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/sesionModal.js"></script>
     <script src="./js/fecha_actual.js"></script>
-    <script>
-    // Toggle del menú móvil
-    document.querySelector('.navbar__toggle').addEventListener('click', function() {
-        const menu = document.getElementById('navbar-menu');
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        
-        this.setAttribute('aria-expanded', !isExpanded);
-        menu.setAttribute('aria-expanded', !isExpanded);
-        
-        // Animación del hamburguesa
-        this.classList.toggle('navbar__toggle--active');
-    });
-</script>
+    <script src="./js/head1.js"></script>
 </body>
+
 </html>
