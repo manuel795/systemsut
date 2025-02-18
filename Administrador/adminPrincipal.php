@@ -21,77 +21,77 @@ $nombreCompleto=$_SESSION['user_nombre'];
     
     }
     .encabezado {
-        position:relative;
-        display:flex;
-        width:100%;
-        min-height:70px;
-        background-color:black;
-        /* justify-content:space-between; */
-        font-family:sanserif;
-        color:white;        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
     }
-    .encabezado .logo{
-        display:flex;
-        align-items:center;
-        width:50%;
-    }
-    .encabezado .logo img{
-        height: 60px;
-        border-radius:10px;
-        padding: 5px;
-    }
-    .encabezado .logo .name{
-        display:flex;
-        
-        padding:5px;
 
+    .logo {
+        display: flex;
+        align-items: center;
     }
-    .encabezado .logo .User{
-        display:flex;
-        padding:5px;
-    }
-    .encabezado .enlaces{
-        width: 50%;
-    }
-    .encabezado .enlaces .navbar {
-        width: 100%;
-        padding:10px;
-        justify-content:right;
-               
-    }
-    .encabezado .enlaces .navbar ul{
-        display:flex;
 
+    .logo img {
+        height: 50px;
+        margin-right: 15px;
     }
-    .encabezado .enlaces .navbar ul li{
-        display:flex;
+
+    .name p {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .navbar ul {
         list-style: none;
-        padding: 0 20px;
+        margin: 0;
+        padding: 0;
+        display: flex;
     }
-    .encabezado .enlaces .navbar ul li a{
-        color: #fff; 
-        text-decoration:none;/*Quitar la decoracion de los links */
-        font-weight:600px;
-        transition: color 0.3s, background-color 0.3s, transform 0.3s;
+
+    .navbar ul li {
+        position: relative;
+        margin-left: 20px;
     }
-    .encabezado .enlaces .navbar ul li a:hover{
-        color: orange; /* Color al pasar el ratón */ 
-        transform: scale(1.0); /* Efecto de aumento */ 
+
+    .navbar ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        display: block;
+        transition: background 0.3s;
     }
-    .encabezado .enlaces .navbar ul li a::before{
-        content: "";
-        position: absolute; 
-        left: 0; 
-        height: 2px; 
-        bottom: -3px; 
-        width: 100%; 
-        background-color: #ff6347; 
-        transform: scaleX(0); 
-        transform-origin: left; 
-        transition: transform 0.3s; 
+
+    .navbar ul li a:hover {
+        background-color: #555;
     }
-    .encabezado .enlaces .navbar ul li a:hover::before{
-        transform: scaleX(1);
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #444;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        min-width: 150px;
+    }
+
+    .dropdown-menu li a {
+        padding: 10px;
+        display: block;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-toggle::after {
+        content: " ▼";
+        font-size: 12px;
     }
     @media (max-width:480px){/* Responsive para celulares */
         .encabezado{
@@ -238,38 +238,51 @@ $nombreCompleto=$_SESSION['user_nombre'];
 
 </style>
 <header>
-    <div class="encabezado">           
-                    <div class="logo"> 
-                        <img src=".././imagenes/logo1.jpg" alt="Logo"> 
-                        <div class="name">                            
-                            <p class="User"><span style="color:yellow;">Bienvenid@&nbsp;Administrador: </span> &nbsp; <strong><?php echo $nombreCompleto; ?></strong></p>                           
-                        </div>
-                    </div> 
-                    <div class="enlaces">
-                        <nav class="navbar">
-                            <ul> 
-                                <li>
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#altaUsuario">Alta de Usuario</a>
-                                </li> 
-                                <li>
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#altaFalta">Alta de Faltas</a>
-                                </li> 
-                                <li>
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#altaUbicacion">Alta de Ubicación</a>
-                                </li> 
-                                <li>
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#consultaPersonal">Consulta General</a>
-                                </li> 
-                                <li>
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#consultaFalta">Consulta Faltas</a>
-                                </li> 
-                                <li>
-                                    <a href="../salir.php">Cerrar Sesión</a>
-                                </li> 
-                            </ul>
-                        </nav>    
-                    </div>                         
-    </div>   
+<div class="encabezado">
+    <div class="logo">
+        <img src="../imagenes/logo1.jpg" alt="Logo">
+        <div class="name">
+            <p class="User">
+                <span style="color: yellow;">Bienvenid@ Administrador: </span>
+                <strong><?php echo $nombreCompleto; ?></strong>
+            </p>
+        </div>
+    </div>
+    <div class="enlaces">
+        <nav class="navbar">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Altas</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#altaUsuario">Alta de Usuario</a>
+                        </li>
+                        <li>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#altaFalta">Alta de Faltas</a>
+                        </li>
+                        <li>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#altaUbicacion">Alta de Ubicación</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Consultas</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#consultaPersonal">Consulta General</a>
+                        </li>
+                        <li>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#consultaFalta">Consulta Faltas</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="../salir.php">Cerrar Sesión</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
 </header>  
 </head>
 <body>
