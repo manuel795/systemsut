@@ -115,7 +115,7 @@
     </footer>
 
             <script src="../js/bootstrap.min.js"></script>
-            <script src="../js/sesionModal2.js"></script>
+            <script src="../js/sesionModal.js"></script>
             <script src="../js/fecha_actual.js"></script>
 </body>
 </html>

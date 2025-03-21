@@ -2,8 +2,10 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            background: url("../imagenes/fondos/fondo5.png")no-repeat center;
+            background-size: cover;
         }
-        
+
         /* Navbar */
         .navbar {
             display: flex;
@@ -72,3 +74,73 @@
         .datos .bienvenida{
             color:white;
         } 
+       .container .titulo{
+            text-align: center;    
+            font-weight: bold;   
+            
+        }
+        .titulo h3{
+            font-weight: bold;
+            color: #ff6347;
+            padding: 15px;
+        }
+        h3 {
+            color: transparent;
+            -webkit-background-clip: text; /* Edge, Chrome */
+            background-clip: text; /* Safari, FF */
+            background-image: url("../imagenes/images.jpg");
+            -webkit-text-stroke: 1px #7512d7;
+            animation: gradientAnimation 20s linear infinite;
+            animation-direction: alternate;
+          }
+          
+          @keyframes gradientAnimation {
+            0% {
+              background-position: 0;
+            }
+            to {
+              background-position: 100%;
+            }
+          }
+        .tabla {
+            width: 100%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+           
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .table-container {
+                width: 100%;
+                padding: 10px;
+            }
+        }

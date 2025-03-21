@@ -2,9 +2,11 @@
 session_start();
 include ("../conexion/conexionbd.php");
 $curpA=$_SESSION['user_id'];
-$nombreCompleto=$_SESSION['user_nombre'];
-
-
+$nombreCompleto=$_SESSION['user_nombre']; // Se inicia Sesion y se coloca en una variable
+if($curpA== null || $curpA==" "){
+    echo "<h2 class='alert-warning'><center>Usted est&aacute; entrando ilegamente..</center></h2>";
+    die();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es-MX">
@@ -12,231 +14,10 @@ $nombreCompleto=$_SESSION['user_nombre'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styleadmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <title>Bienvenido Administrador</title>
-<style>
-    html, body {
-    height: 100%; /* Asegura que el body y el html tengan el 100% de altura */
-    margin: 0;
-    
-    }
-    .encabezado {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        background-color: #333;
-        color: white;
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-    }
-
-    .logo img {
-        height: 50px;
-        margin-right: 15px;
-    }
-
-    .name p {
-        margin: 0;
-        font-size: 16px;
-    }
-
-    .navbar ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
-
-    .navbar ul li {
-        position: relative;
-        margin-left: 20px;
-    }
-
-    .navbar ul li a {
-        color: white;
-        text-decoration: none;
-        padding: 10px 15px;
-        display: block;
-        transition: background 0.3s;
-    }
-
-    .navbar ul li a:hover {
-        background-color: #555;
-    }
-
-    .dropdown-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #444;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        min-width: 150px;
-    }
-
-    .dropdown-menu li a {
-        padding: 10px;
-        display: block;
-    }
-
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-
-    .dropdown-toggle::after {
-        content: " ▼";
-        font-size: 12px;
-    }
-    @media (max-width:480px){/* Responsive para celulares */
-        .encabezado{
-            flex-direction:column;        
-        }  
-        .encabezado .logo{ 
-            font-size: 12px; /* Tamaño de fuente aún más pequeño en pantallas muy pequeñas */ 
-            min-width:100%;
-        }
-        .encabezado .enlaces .navbar ul {
-            flex-direction:column;
-            justify-content:center;
-            align-items:left;
-
-        }
-        .encabezado .enlaces .navbar ul li{ 
-            padding-bottom:10px;
-
-        }
-        .encabezado .enlaces .navbar ul li a:hover{ 
-            flex-direction:column;
-            color: orange; /* Color al pasar el ratón */ 
-            background-color: rgba(255, 99, 71, 0.2); /* Fondo al pasar el ratón */ 
-            transform: scale(1.0); /* Efecto de aumento */ 
-
-        }
-        .container .busquedaP form .form-group{
-            flex-direction:column;
-            width:100%;
-
-        }
-   
-
-    }
-    .container{
-         display: grid;
-         grid-template-rows: auto auto auto; /* Define dos filas con alturas automáticas */
-         grid-template-columns: 100%;   /* Define una columna que ocupa todo el ancho */
-         gap: 10px;                    /* Espacio entre filas (opcional) */
-         padding-top:5px;
-         padding-bottom:10px;
-         margin: 0;
-         max-width:100%;
-         min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */       
-     }   
-    .container .tituloP{
-
-        padding: 5px;
-        text-align: center;
-        border: 1px solid #ccc;
-        height: 40px;
-        border-radius:15px;
-        font-weight:bold;
-        color:white;
-
-    }
-    .container .datos{
-        display:grid;
-         overflow-x: auto; /* Hace que la tabla sea desplazable horizontalmente en pantallas pequeñas */
-         grid-column: 1 / -1; /* Hace que ocupe desde la primera columna hasta la última */
-
-    }
-    footer{
-        position:relative;
-        background: #333;
-        color: white;
-        text-align: center;
-        padding: 10px;
-    
-    }
-    table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-            
-        }
-        th {
-            background-color:#800040;
-            color:white;
-        }
-        tbody{
-            background-color:white;
-            font-weight:600;
-        }
-
-    .tituloP{
-            height:200px;
-            background: rgb(189, 189, 189);
-            background: linear-gradient(90deg, rgb(5, 115, 33) 0%, rgb(134, 72, 13) 0%, rgb(111, 10, 9) 48%, rgb(233, 126, 169) 100%);
-            background-size: 300% 100%;
-            animation: gradient 15s ease infinite;
-    }
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-/** Estilo del Modal */
-#altaUsuario{
-    font-weight:bold;
-    color:#800040;
-}
-.container .busquedaP{
-    display:flex;
-    padding: 5px;
-    width: 100%;
-    align-items:center;
-    justify-content:center;    
-    gap:10px;
-    /* background-color:#800040; */
-    border-radius:25px;
-}
-.busquedaP .form-group{
-    width: 450px;
-    gap:10px;
-}
-.busquedaP .form-group>label{
-    padding-bottom:10px;
-    font-weight:600;
-}
-#consultaPersonal .modal-header,#consultaFalta .modal-header{
-    background-color:#800040;
-}
-#consultaPersonal .modal-body .text-center th,#consultaFalta .modal-body .text-center th{
-    background-color:#800040;
-    color:white;
-}
-.busquedaP .form-group{
-    padding:20px;
-    border:2px solid #800040;
-    border-radius:25px;
-}
-
-</style>
 <header>
 <div class="encabezado">
     <div class="logo">
@@ -244,7 +25,7 @@ $nombreCompleto=$_SESSION['user_nombre'];
         <div class="name">
             <p class="User">
                 <span style="color: yellow;">Bienvenid@ Administrador: </span>
-                <strong><?php echo $nombreCompleto; ?></strong>
+                <strong><?php echo htmlspecialchars($nombreCompleto);//Se usa la variable para mostrar el nombre del usuario y para evitar ataques XSS ?></strong>
             </p>
         </div>
     </div>
@@ -332,7 +113,7 @@ $nombreCompleto=$_SESSION['user_nombre'];
                                                                     <th>PDF</th>
                                                                     </tr>
                                                                 </thead>
-                                                                <tbody>
+                                                                
                                                             ";
         
                                                         //Consulta general de los registros 
@@ -343,22 +124,13 @@ $nombreCompleto=$_SESSION['user_nombre'];
                                             $result = $conn->query($sqlG);
 
                                             $resultado = $conn->query($sqlC);
+                            ?>
+                              <tbody id="tablaUsuarios">                          
+                                       
                                                         
-                                            while ($rowv = $result->fetch_assoc()) {
-                                                        
-                                                        echo "	<tr>
-                                                                    <td class='bg-dark text-white'>".$rowv['curp']."</td>
-                                                                    <td>".$rowv['nombre_completo']."</td>
-                                                                    <td>".$rowv['telefono']."</td>
-                                                                    <td>".$rowv['correo']."</td>
-                                                                    <td>".$rowv['user']."</td>
-                                                                    <td>".$rowv['estado']."</td>
-                                                                    <td>".$rowv['privilegio']."</td>
-                                                                    <td>"."<a class='btn btn-sm btn-link' href='../Administrador/Edicion/edicion_volantes.php?no=".$rowv['curp']."'>Edicion</a>"."</td>
-                                                                    <td>"."<a class='btn btn-sm btn-link' href='../Administrador/Consultas_pdf/crearVolante.php?no=".$rowv['curp']."' target='_blank'>PDF</a>"."</td>
-                                                                    </tr>";
 
-                                            }
+
+                             <?php               
                                                                                                     echo "
                                                                                                 </tbody>
                                                                                                 </table>
@@ -568,15 +340,15 @@ $nombreCompleto=$_SESSION['user_nombre'];
             const privilegio1= $('#privilegio').val(); 
             const curp1= $('#nCurp').val(); 
             const estado1 = $('#vUser').val(); 
-            if(pass1!=pass2){
-				alert("Las contraseñas NO coinciden...");
-				return false;
-			}
+                if(pass1!=pass2){
+                    alert("Las contraseñas NO coinciden...");
+                    return false;
+                }
 			
-        if($("#nCorreo").val().indexOf('@', 0) == -1 || $("#nCorreo").val().indexOf('.', 0) == -1) {
-            alert('El correo electrónico introducido no es correcto.');
-            return false;
-          }
+                if($("#nCorreo").val().indexOf('@', 0) == -1 || $("#nCorreo").val().indexOf('.', 0) == -1) {
+                    alert('El correo electrónico introducido no es correcto.');
+                    return false;
+                }
 
             $.ajax({ type: 'POST', 
                       url: '../Administrador/Registros/procesarUsuario.php', 
@@ -618,7 +390,7 @@ $nombreCompleto=$_SESSION['user_nombre'];
 
     });
 
-    function consultarClave() { 
+    function consultarClave() { //mostrar información en un input con una consulta
         var clave = $("#curp").val(); 
 
         $.ajax({ url: "../Administrador/Buscar/buscaE.php", 
@@ -636,6 +408,25 @@ $nombreCompleto=$_SESSION['user_nombre'];
             } 
         }); 
     } 
+    fetch('../Administrador/Consultas/consultaGral.php')
+            .then(response => response.json())
+            .then(data => {
+                const tabla = document.getElementById('tablaUsuarios');
+                data.forEach(usuario => {
+                    let fila = document.createElement('tr');
+                    fila.innerHTML = `<td>${usuario.curp}</td>
+                                      <td>${usuario.nombre_completo}</td>
+                                      <td>${usuario.telefono}</td>
+                                      <td>${usuario.correo}</td>
+                                      <td>${usuario.user}</td>
+                                      <td>${usuario.estado}</td>
+                                      <td>${usuario.privilegio}</td>
+                                      <td> <i class="fa-solid fa-user-pen"></i></td>
+                                      <td><i class="fa-duotone fa-solid fa-file-pdf"></i></td>`;
+                    tabla.appendChild(fila);
+                });
+            })
+            .catch(error => console.error('Error:', error));
     </script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/buscarPersona.js"></script>

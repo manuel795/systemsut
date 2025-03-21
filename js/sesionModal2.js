@@ -23,7 +23,7 @@
         var password = document.getElementById("clave").value; // Enviar datos al servidor usando fetch 
         
         var tiempoEspera = 5000; // Mostrar mensaje de error después del tiempo especificado 
-        fetch('./../sesion/procesar_login.php', { 
+        fetch('../sesion/procesar_login.php', { 
             method: 'POST', 
             headers: { 'Content-Type': 'application/json' }, 
             body: JSON.stringify({ username: username, password: password }) 

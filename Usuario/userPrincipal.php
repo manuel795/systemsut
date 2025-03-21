@@ -58,28 +58,55 @@ WHERE faltas.curp=? and faltas.curp=usuarios.curp and faltas.estado='SIN VALIDAR
                 
             ?>
             <div class="tabla"><!--Informacion de las faltas del usuario-->
-            <table class="table table-striped" id="tabla-usuarios">
-            <thead>
-                <tr>
-                    <th>CURP</th>
-                    <th>Nombre Completo</th>
-                    <th>Faltas</th>
-                    <th>Motivo</th>
-                    <th>Estado</th>
-                </tr>
-            </thead>
-            <tbody >
-                <!-- Los datos se insertarán aquí dinámicamente -->
-            </tbody>
-        </table>
+                    <table class="table table-striped" id="tabla-usuarios">
+                            <thead>
+                                <tr>
+                                    <th>CURP</th>
+                                    <th>Nombre Completo</th>
+                                    <th>Faltas</th>
+                                    <th>Motivo</th>
+                                    <th>Estado</th>
+                                    <th>Cargar Archivo</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                                <!-- Los datos se insertarán aquí dinámicamente -->
+                            </tbody>
+                    </table>
             </div>
                 <?php
                 }
                 ?>
         </div>
+            <!-- Modal -->
+    <div class="modal fade" id="cargaArchivo" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadModalLabel">Cargar Archivo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/ruta-de-tu-servidor" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="archivo">Selecciona un archivo</label>
+                            <input type="file" class="form-control-file" id="archivo" name="archivo" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Cargar</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="../js/bootstrap.min.js"></script>
         <!-- Bootstrap JS y dependencias -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- JavaScript para cargar los datos -->
     <script>
 
@@ -114,6 +141,8 @@ WHERE faltas.curp=? and faltas.curp=usuarios.curp and faltas.estado='SIN VALIDAR
                         <td>${usuario.fecha}</td>
                         <td>${usuario.motivo}</td>
                         <td>${usuario.estado}</td>
+                        <td style="text-align:center; vertical-align:middle;"><a href="" data-bs-toggle="modal" data-bs-target="#cargaArchivo" class="link"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24" fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /></svg></i>Justificación</a></td>
+
                     `;
                     tbody.appendChild(row);
                 });
