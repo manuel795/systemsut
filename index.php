@@ -93,8 +93,7 @@
                 <div class="card">
                     <p><strong>Estimado compañero: S.U.T.G.E.S.E.</strong>Te da la cordial bienvenida al portal del Sindicato Único de Trabajadores del Gobierno
                         del Estado al Servicio de la Educación (S.U.T.G.E.S.E.).
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas iusto sequi quos dolores magni facere illo, architecto 
-                        exercitationem.
+                        Un espacio para los compañeros, donde la información que se puede encontrar es importante para los tramites en nuestros Centros de Trabajos.
                          Aut ex ipsa distinctio commodi minus quos aliquid laboriosam corrupti recusandae fugiat?
                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi mollitia magnam minima esse non, obcaecati, consectetur iusto officiis 
                          ipsum eum reprehenderit dolores aut eligendi delectus, nemo veritatis tempora aperiam unde?
